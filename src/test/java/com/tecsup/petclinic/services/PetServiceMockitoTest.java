@@ -45,9 +45,6 @@ public class PetServiceMockitoTest {
 
         Pet petExpected = TObjectCreator.getPet();
 
-        
-        
-        
         Mockito.when(this.repository.findById(petExpected.getId()))
                 .thenReturn((Optional.of(petExpected)));
         

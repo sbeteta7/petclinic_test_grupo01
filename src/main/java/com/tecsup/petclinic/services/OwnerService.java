@@ -28,41 +28,6 @@ public interface OwnerService {
      * @param id
      * @throws OwnerNotFoundException
      */
-    void delete(Integer id) throws OwnerNotFoundException;
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    Owner findById(Integer id) throws OwnerNotFoundException;
-
-    /**
-     *
-     * @param first_name
-     * @return
-     */
-    List<Owner> findByFirstName(String first_name);
-
-    /**
-     *
-     * @param last_name
-     * @return
-     */
-    List<Owner> findByLastName(String last_name);
-
-    /**
-     *
-     * @param id
-     * @return
-     */
-    List<Owner> findByOwnerId(int id);
-
-    /**
-     *
-     * @return
-     */
-    List<Owner> findAll();
 
 
 }

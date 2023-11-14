@@ -22,6 +22,16 @@ public class Owner {
     public Owner() {
     }
 
+    public Owner(String first_name, String last_name, String address, String city, String telephone){
+        super();
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.address = address;
+        this.city = city;
+        this.telephone=telephone;
+
+    }
+
     public Owner(Integer id, String first_name, String last_name, String address, String city, String telephone) {
         super();
         this.id = id;

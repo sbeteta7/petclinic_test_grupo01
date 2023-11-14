@@ -31,6 +31,7 @@ public class Pet {
 	public Pet() {
 	}
 
+
 	public Pet(Integer id, String name, int type_id, int owner_id, Date birthDate) {
 		super();
 		this.id = id;

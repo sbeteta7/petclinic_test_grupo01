@@ -1,6 +1,7 @@
 package com.tecsup.petclinic.util;
 
 import com.tecsup.petclinic.entities.Pet;
+import com.tecsup.petclinic.entities.Owner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,4 +61,32 @@ public class TObjectCreator {
 		pets.add(new Pet(13,"Sly",1,10, null));
 		return pets;
 	}
+
+
+
+	/* OWNER */
+	public static Owner getOwner() {
+		return new Owner(1,"Mario", "Espinoza",null,null,null);
+	}
+
+	public static Owner newOwner() {
+		return new Owner(0,"Mario","Ventosilla",null,null, null);
+	}
+
+	public static Owner newOwnerCreated() {
+		Owner owner = newOwner();
+		owner.setId(1000);
+		return owner;
+	}
+
+	public static Owner newOwnerForUpdate() {
+		return new Owner(0,"Fernanda","Villo",null,null,null);
+	}
+
+	public static Owner newOwnerCreatedForUpdate() {
+		Owner owner = newOwnerForUpdate();
+		owner.setId(4000);
+		return owner;
+	}
+
 }
