@@ -9,25 +9,21 @@ import java.util.List;
 
 public interface OwnerService {
     /**
-     *
      * @param owner
      * @return
      */
-
     Owner create(Owner owner);
-
     /**
      *
      * @param owner
      * @return
      */
     Owner update(Owner owner);
-
     /**
      *
      * @param id
-     * @throws OwnerNotFoundException
+     * @return
      */
-
+    Owner findById(Integer id) throws OwnerNotFoundException;
 
 }

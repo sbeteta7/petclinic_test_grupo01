@@ -40,10 +40,21 @@ public class OwnerServicelmpl implements OwnerService{
     }
 
 
+
     /**
      *
      * @param id
-     * @throws OwnerNotFoundException
+     * @return
      */
+    @Override
+    public Owner findById(Integer id) throws OwnerNotFoundException {
+
+        Optional<Owner> owner = ownerRepository.findById(id);
+
+        if ( !owner.isPresent())
+            throw new OwnerNotFoundException("Record not found...!");
+
+        return owner.get();
+    }
 
 }

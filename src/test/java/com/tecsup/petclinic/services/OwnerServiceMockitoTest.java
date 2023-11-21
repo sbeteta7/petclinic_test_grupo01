@@ -3,6 +3,7 @@ package com.tecsup.petclinic.services;
 
 import com.tecsup.petclinic.entities.Owner;
 import com.tecsup.petclinic.entities.Pet;
+import com.tecsup.petclinic.exception.OwnerNotFoundException;
 import com.tecsup.petclinic.exception.PetNotFoundException;
 import com.tecsup.petclinic.repositories.OwnerRepository;
 import com.tecsup.petclinic.repositories.PetRepository;
@@ -135,6 +136,28 @@ public class OwnerServiceMockitoTest {
         assertEquals(UP_OWNER_LASTNAME, upgradeOwner.getLast_name());
 
     }
+
+    @Test
+    public void testFindPetById() {
+
+        Owner ownerExpected = TObjectCreator.getOwner();
+
+        Mockito.when(this.repository.findById(ownerExpected.getId()))
+                .thenReturn((Optional.of(ownerExpected)));
+
+
+
+        try {
+            ownerExpected = this.ownerService.findById(ownerExpected.getId());
+        } catch (OwnerNotFoundException e) {
+            fail(e.getMessage());
+        }
+
+        log.info("" + ownerExpected);
+        assertEquals(ownerExpected.getFirst_name(), ownerExpected.getFirst_name());
+
+    }
+
 
 
 }
