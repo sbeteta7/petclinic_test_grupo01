@@ -77,7 +77,7 @@ public class OwnerServicelmpl implements OwnerService{
     @Override
     public List<Owner> findByFirstName(String first_name) {
 
-        List<Owner> owners = ownerRepository.findByFirstName(first_name);
+        List<Owner> owners = ownerRepository.findByfirstName(first_name);
 
         owners.stream().forEach(owner -> log.info("" + owner));
 
@@ -92,7 +92,7 @@ public class OwnerServicelmpl implements OwnerService{
     @Override
     public List<Owner> findByLastName(String last_name) {
 
-        List<Owner> owners = ownerRepository.findByLastName(last_name);
+        List<Owner> owners = ownerRepository.findBylastName(last_name);
 
         owners.stream().forEach(owner -> log.info("" + owner));
 
@@ -107,7 +107,7 @@ public class OwnerServicelmpl implements OwnerService{
     @Override
     public List<Owner> findByOwnerId(int id) {
 
-        List<Owner> owners = ownerRepository.findByOwnerId(id);
+        List<Owner> owners = ownerRepository.findById(id);
 
         owners.stream().forEach(owner -> log.info("" + owner));
 
