@@ -25,6 +25,11 @@ public interface OwnerMapper {
             @Mapping(source = "city", target = "city"),
             @Mapping(source = "telephone", target = "telephone")
     })
+
+    List<OwnerTo> toOwnerTOList(List<Owner> ownerList);
+
+    List<Owner> toOwnerList(List<OwnerTo> ownerTOList);
+
     Owner toOwner(OwnerTo ownerTo);
     OwnerTo toOwnerTo(Owner owner);
 }

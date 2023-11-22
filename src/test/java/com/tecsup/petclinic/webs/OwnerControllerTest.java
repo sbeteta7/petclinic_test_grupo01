@@ -22,12 +22,12 @@ public class OwnerControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void testFindAllPets() throws Exception {
+    public void testFindAllOwners() throws Exception {
 
         //int NRO_RECORD = 73;
         int ID_FIRST_RECORD = 1;
 
-        this.mockMvc.perform(get("/pets"))
+        this.mockMvc.perform(get("/owners"))
                 .andExpect(status().isOk())
                 .andExpect(content()
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
@@ -42,31 +42,34 @@ public class OwnerControllerTest {
      *
      */
     @Test
-    public void testFindPetOK() throws Exception {
+    public void testFindOwnerOK() throws Exception {
 
-        String NAME_PET = "Leo";
-        int TYPE_ID = 1;
-        int OWNER_ID = 1;
-        String BIRTH_DATE = "2000-09-07";
+        Integer ID = 1;
+        String FIRST_NAME = "110 W. Liberty St.";
+        String LAST_NAME = "Madison";
+        String ADDRESS = "George";
+        String CITY = "Franklin";
+        String TELEPHONE = "6085551023";
 
-        mockMvc.perform(get("/pets/1"))  // Object must be BASIL
+        mockMvc.perform(get("/owner/1"))  // Object must be BASIL
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.name", is(NAME_PET)))
-                .andExpect(jsonPath("$.typeId", is(TYPE_ID)))
-                .andExpect(jsonPath("$.ownerId", is(OWNER_ID)))
-                .andExpect(jsonPath("$.birthDate", is(BIRTH_DATE)));
+                .andExpect(jsonPath("$.firstName", is(FIRST_NAME)))
+                .andExpect(jsonPath("$.lastName", is(LAST_NAME)))
+                .andExpect(jsonPath("$.address", is(ADDRESS)))
+                .andExpect(jsonPath("$.city", is(CITY)))
+                .andExpect(jsonPath("$.telephone", is(TELEPHONE)));
     }
     /**
      *
      * @throws Exception
      */
     @Test
-    public void testFindPetKO() throws Exception {
+    public void testFindOwnerKO() throws Exception {
 
-        mockMvc.perform(get("/pets/666"))
+        mockMvc.perform(get("/owner/666"))
                 .andExpect(status().isNotFound());
 
     }
