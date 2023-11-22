@@ -2,19 +2,20 @@ package com.tecsup.petclinic.repositories;
 
 import com.tecsup.petclinic.entities.Owner;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface OwnerRepository
 extends CrudRepository<Owner,Integer> {
 
     // Fetch owner by name
-    List<Owner> findByFirstName(String first_name);
+    List<Owner> findByfirstName(String firstName);
 
-    List<Owner> findByLastName(String Last_name);
+    List<Owner> findBylastName(String lastName);
 
     // Fetch owner by ownerId
-    List<Owner> findByOwnerId(int id);
+    List<Owner> findById(int id);
 
     @Override
     List<Owner> findAll();

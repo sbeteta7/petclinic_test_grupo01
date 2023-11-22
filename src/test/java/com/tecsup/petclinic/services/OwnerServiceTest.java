@@ -19,7 +19,7 @@ public class OwnerServiceTest {
 	private OwnerRepository ownerRepository;
 
 	@InjectMocks
-	private OwnerService ownerService;
+	private OwnerServicelmpl ownerService;
 
 	@BeforeEach
 	void setUp() {
@@ -38,16 +38,20 @@ public class OwnerServiceTest {
 
 		try {
 			owner = this.ownerService.findById(ID);
+			System.out.println("Se encontró el owner");
+			log.info("" + owner);
+			assertEquals(FIRST_NAME, owner.getFirstName());
+			assertEquals(LAST_NAME, owner.getLastName());
+			assertEquals(ADDRESS, owner.getAddress());
+			assertEquals(CITY, owner.getCity());
+			assertEquals(TELEPHONE, owner.getTelephone());
+
 		} catch (OwnerNotFoundException e) {
+			System.out.println("No se encontró el owner");
             throw new RuntimeException(e);
         }
 
-        log.info("" + owner);
-		assertEquals(FIRST_NAME, owner.getFirst_name());
-		assertEquals(LAST_NAME, owner.getLast_name());
-		assertEquals(ADDRESS, owner.getAddress());
-		assertEquals(CITY, owner.getCity());
-		assertEquals(TELEPHONE, owner.getTelephone());
+
 	}
 
 }
